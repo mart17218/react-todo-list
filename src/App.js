@@ -9,19 +9,25 @@ function App(props) {
   const addTask = (text) => {
     setTask([...tasks, { text }])
   }
-  const taskList = tasks.map((task, key) => <Todo key={key} text={task.text} />)
+  const removeTask = (index) => {
+    const newTasks = tasks.filter((t, key) => key !== index)
+    setTask(newTasks)
+  }
+  const taskList = tasks.map((task, key) => <Todo key={key} id={key} text={task.text} deleteTask={removeTask} />)
 
   return (
     <div className="App-container">
-      <section className="text-center">
-        <h2 className="mb-2">To Do</h2>
-        <div>
-          <CreateInput tasks={tasks} setTask={addTask} />
-        </div>
-      </section>
-      <section className="my-2">
-        { taskList }
-      </section>
+      <div style={{ width: '280px' }}>
+        <section className="text-center">
+          <h2 className="mb-2">To Do</h2>
+          <div>
+            <CreateInput tasks={tasks} setTask={addTask} />
+          </div>
+        </section>
+        <section className="my-2">
+          { taskList }
+        </section>
+      </div>
     </div>
   );
 }

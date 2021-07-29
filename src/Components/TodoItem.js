@@ -1,4 +1,5 @@
-import { Checkbox, FormControlLabel, withStyles } from '@material-ui/core'
+import { Checkbox, FormControlLabel, IconButton, withStyles } from '@material-ui/core'
+import { DeleteOutlined } from '@material-ui/icons'
 
 function Todo (props) {
   const WhiteCheckbox = withStyles({
@@ -8,13 +9,19 @@ function Todo (props) {
     checked: {},
   })((props) => <Checkbox color="default" {...props} />)
   const changeHandler = () => {}
+  const deleteItem = () => {
+    props.deleteTask(props.id)
+  }
 
   return (
-    <div>
+    <div className="items-center flex justify-between">
       <FormControlLabel
         control={<WhiteCheckbox onChange={changeHandler} name="checkedA" />}
         label={props.text}
       />
+      <IconButton aria-label="delete" onClick={deleteItem}>
+        <DeleteOutlined style={{ color: '#fff' }} />
+      </IconButton>
     </div>
   )
 }
