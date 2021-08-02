@@ -13,18 +13,20 @@ function App(props) {
     const newTasks = tasks.filter((t, key) => key !== index)
     setTask(newTasks)
   }
-  const taskList = tasks.map((task, key) => <Todo key={key} id={key} text={task.text} deleteTask={removeTask} />)
+  const taskList = tasks.map((task, key) =>
+    <Todo className="mb-2" key={key} id={key} text={task.text} deleteTask={removeTask} />
+  )
 
   return (
     <div className="App-container">
       <div style={{ width: '280px' }}>
         <section className="text-center">
-          <h2 className="mb-2">To Do</h2>
+          <h2 className="text-left mb-4">To Do</h2>
           <div>
             <CreateInput tasks={tasks} setTask={addTask} />
           </div>
         </section>
-        <section className="my-2">
+        <section className="my-4">
           { taskList }
         </section>
       </div>
