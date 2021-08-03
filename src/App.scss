@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Noto Sans TC';
+}
+.app-container {
+  @apply flex justify-center;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  &:before {
+    @apply absolute w-full;
+    background-color: #282c34;
+    content: '';
+    height: 40vh;
+  }
+}
+.content-container {
+  @apply absolute;
+  top: calc(40vh - 76px);
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Todo from './Components/TodoItem.js'
 import CreateInput from './Components/CreateInput.js'
 
-import './App.css'
+import './App.scss'
 
 function App(props) {
   const [tasks, setTask] = useState(props.tasks)
@@ -18,8 +18,8 @@ function App(props) {
   )
 
   return (
-    <div className="App-container">
-      <div style={{ width: '280px' }}>
+    <div className="app-container">
+      <div className="content-container" style={{ width: '280px' }}>
         <section className="text-center">
           <h2 className="text-left mb-4">To Do</h2>
           <div>

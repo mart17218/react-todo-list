@@ -10,14 +10,14 @@ function Todo (props) {
   }
 
   return (
-    <div className={`bg-white flex items-center justify-between rounded-sm text-gray-900 ${props.className}`}>
+    <div className={`border border-gray-900 bg-white flex items-center justify-between rounded text-gray-900 ${props.className}`}>
       <FormControlLabel
         control={<GrayCheckbox icon={<RadioButtonUnchecked />} checkedIcon={<CheckCircleOutline />} onChange={changeHandler} name="checkedA" />}
         label={props.text}
         className="px-4"
       />
       <IconButton aria-label="delete" onClick={deleteItem}>
-        <DeleteOutlined style={{ color: '#fff' }} />
+        <DeleteOutlined style={{ color: '#111827' }} />
       </IconButton>
     </div>
   )
