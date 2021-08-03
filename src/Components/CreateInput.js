@@ -9,15 +9,17 @@ function CreateInput (props) {
     setValue(event.target.value)
   }
   const createItem = (e) => {
-    props.setTask(inputValue)
-    setValue('')
+    if (inputValue) {
+      props.setTask(inputValue)
+      setValue('') 
+    }
   }
 
   return (
     <Paper className="flex">
       <InputBase
         placeholder="write something"
-        inputProps={{ 'aria-label': 'add todo' }}
+        inputProps={{ 'aria-label': 'add todo', maxLength: 20 }}
         className="flex-1 pl-2"
         onChange={changeHandler}
         value={inputValue}

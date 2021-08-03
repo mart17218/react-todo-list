@@ -14,7 +14,7 @@ function Todo (props) {
       <FormControlLabel
         control={<GrayCheckbox icon={<RadioButtonUnchecked />} checkedIcon={<CheckCircleOutline />} onChange={changeHandler} name="checkedA" />}
         label={props.text}
-        className="px-4"
+        className="break-all px-4"
       />
       <IconButton aria-label="delete" onClick={deleteItem}>
         <DeleteOutlined style={{ color: '#111827' }} />
