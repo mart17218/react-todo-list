@@ -1,5 +1,5 @@
 import { FormControlLabel, IconButton } from '@material-ui/core'
-import { CheckCircleOutline, DeleteOutlined, RadioButtonUnchecked } from '@material-ui/icons'
+import { CheckCircleOutline, ClearOutlined, RadioButtonUnchecked } from '@material-ui/icons'
 
 import GrayCheckbox from './material-ui/GrayCheckbox'
 
@@ -26,7 +26,7 @@ function Todo (props) {
         className="break-all px-4"
       />
       <IconButton aria-label="delete" onClick={deleteItem}>
-        <DeleteOutlined style={{ color: '#111827' }} />
+        <ClearOutlined classes={{ root: 'text-gray-900' }} />
       </IconButton>
     </div>
   )

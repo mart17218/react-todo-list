@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import AddIcon from '@material-ui/icons/Add'
 import { IconButton, InputBase, Paper } from '@material-ui/core'
 
+import './CreateInput.scss'
+
 function CreateInput (props) {
   const [inputValue, setValue] = useState('')
 
@@ -11,21 +13,21 @@ function CreateInput (props) {
   const createItem = (e) => {
     if (inputValue) {
       props.setTask(inputValue)
-      setValue('') 
+      setValue('')
     }
   }
 
   return (
-    <Paper className="flex">
+    <Paper className="flex" elevation={0}>
       <InputBase
         placeholder="write something"
         inputProps={{ 'aria-label': 'add todo', maxLength: 20 }}
-        className="flex-1 pl-2"
+        className="create-input flex-1 pl-2"
         onChange={changeHandler}
         value={inputValue}
       />
       <IconButton type="submit" aria-label="add" onClick={createItem}>
-        <AddIcon />
+        <AddIcon classes={{ root: 'text-gray-900' }} />
       </IconButton>
     </Paper>
   )

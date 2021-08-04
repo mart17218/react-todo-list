@@ -12,10 +12,15 @@
     @apply absolute w-full;
     background-color: #282c34;
     content: '';
-    height: 40vh;
+    height: 36vh;
   }
 }
 .content-container {
   @apply absolute;
-  top: calc(40vh - 76px);
+  top: calc(36vh - 141px);
+  width: 280px;
+}
+.task-container {
+  @apply overflow-y-auto px-3;
+  max-height: 50vh;
 }

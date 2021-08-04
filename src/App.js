@@ -36,14 +36,14 @@ function App(props) {
 
   return (
     <div className="app-container">
-      <div className="content-container" style={{ width: '280px' }}>
-        <section className="text-center">
+      <div className="content-container">
+        <section className="px-3 text-center">
           <h2 className="text-left mb-4">To Do</h2>
           <div>
             <CreateInput tasks={tasks} setTask={addTask} />
           </div>
         </section>
-        <section className="my-4">
+        <section className="task-container my-4">
           { taskList }
         </section>
       </div>
