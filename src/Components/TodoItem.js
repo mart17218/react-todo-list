@@ -4,15 +4,24 @@ import { CheckCircleOutline, DeleteOutlined, RadioButtonUnchecked } from '@mater
 import GrayCheckbox from './material-ui/GrayCheckbox'
 
 function Todo (props) {
-  const changeHandler = () => {}
+  const changeHandler = () => {
+    props.toggleTask(props.id)
+  }
   const deleteItem = () => {
     props.deleteTask(props.id)
   }
+  const todoItem =
+    <GrayCheckbox
+      checked={props.checked}
+      icon={<RadioButtonUnchecked />}
+      checkedIcon={<CheckCircleOutline />}
+      onChange={changeHandler}
+    />
 
   return (
     <div className={`border border-gray-900 bg-white flex items-center justify-between rounded text-gray-900 ${props.className}`}>
       <FormControlLabel
-        control={<GrayCheckbox icon={<RadioButtonUnchecked />} checkedIcon={<CheckCircleOutline />} onChange={changeHandler} name="checkedA" />}
+        control={todoItem}
         label={props.text}
         className="break-all px-4"
       />

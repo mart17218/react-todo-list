@@ -7,14 +7,31 @@ import './App.scss'
 function App(props) {
   const [tasks, setTask] = useState(props.tasks)
   const addTask = (text) => {
-    setTask([...tasks, { text }])
+    setTask([...tasks, { text, checked: false }])
   }
   const removeTask = (index) => {
     const newTasks = tasks.filter((t, key) => key !== index)
     setTask(newTasks)
   }
+  const checkTask = (index) => {
+    const newTasks = tasks.map((task, key) => {
+      if (key === index) {
+        return { ...task, checked: !task.checked }
+      }
+      return task
+    })
+    setTask(newTasks)
+  }
   const taskList = tasks.map((task, key) =>
-    <Todo className="mb-2" key={key} id={key} text={task.text} deleteTask={removeTask} />
+    <Todo
+      className="mb-2"
+      key={key}
+      id={key}
+      text={task.text}
+      checked={task.checked}
+      toggleTask={checkTask}
+      deleteTask={removeTask}
+    />
   )
 
   return (
@@ -34,4 +51,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default App
