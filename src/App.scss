@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import './mixins.scss';
 
 * {
   font-family: 'Noto Sans TC';
@@ -18,7 +19,10 @@
 .content-container {
   @apply absolute;
   top: calc(36vh - 141px);
-  width: 280px;
+  width: calc(100vw - 32px);
+  @include sm {
+    width: 280px;
+  }
 }
 .task-container {
   @apply overflow-y-auto px-3;
