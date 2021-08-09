@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import Todo from './Components/TodoItem.js'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+
+import TodoColumn from './Components/dnd/Column.js'
 import CreateInput from './Components/CreateInput.js'
 
 import './App.scss'
@@ -22,8 +25,16 @@ function App(props) {
     })
     setTask(newTasks)
   }
+  const moveTask = (from, to) => {
+    const newTasks = [...tasks]
+    const movedTask = tasks[from.id]
+
+    newTasks.splice(from.id, 1)
+    newTasks.splice(to.columnIndex, 0, movedTask)
+    setTask(newTasks)
+  }
   const taskList = tasks.map((task, key) =>
-    <Todo
+    <TodoColumn
       className="mb-2"
       key={key}
       id={key}
@@ -31,6 +42,7 @@ function App(props) {
       checked={task.checked}
       toggleTask={checkTask}
       deleteTask={removeTask}
+      moveHandler={moveTask}
     />
   )
 
@@ -43,9 +55,11 @@ function App(props) {
             <CreateInput tasks={tasks} setTask={addTask} />
           </div>
         </section>
-        <section className="task-container my-4">
-          { taskList }
-        </section>
+        <DndProvider backend={HTML5Backend}>
+          <section className="task-container my-4">
+              { taskList }
+          </section>
+        </DndProvider>
       </div>
     </div>
   );
