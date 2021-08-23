@@ -12,9 +12,8 @@ const Column = (props) => {
 
       props.moveHandler(from, to)
     },
-    canDrop: (item) => {
-      // TODO: 排除移動前後位置相同的情形
-      return true
+    canDrop: item => {
+      return item.id !== props.id
     }
   })
 
